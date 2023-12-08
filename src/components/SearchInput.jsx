@@ -46,7 +46,7 @@ const SearchInput = ({ setIsLoading }) => {
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
         placeholder="Search here"
-        className="input input-bordered w-full max-w-xs focus:outline-none mx-auto"
+        className="input input-bordered w-full max-w-xs focus:outline-none mx-auto bg-gray-900"
       />
     </>
   );

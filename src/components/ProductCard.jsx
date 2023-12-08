@@ -34,7 +34,7 @@ const ProductCard = ({ productDetail }) => {
 
   return (
     <div
-      className="card sm:w-96 bg-base-100 min-h-full max-h-[60vh] shadow-2xl p-2 border border-gray-800"
+      className="card sm:w-96  min-h-full max-h-[60vh] shadow-2xl p-2 border border-gray-700 bg-gray-800"
       onClick={() => handleNavigate(productDetail?.id)}
     >
       <figure>
@@ -46,7 +46,7 @@ const ProductCard = ({ productDetail }) => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{truncateText(book.title)}</h2>
+        <h2 className="card-title text-gray-300 ">{truncateText(book.title)}</h2>
 
         <p className="text-white text-sm">
           Publisher: {truncateText(book?.publisher)}
