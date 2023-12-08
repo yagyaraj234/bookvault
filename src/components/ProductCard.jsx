@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cart/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ productDetail }) => {
   const book = productDetail.volumeInfo;
   const dispatch = useDispatch();
   const [addingToCart, setAddingToCart] = useState(false);
+  const navigate = useNavigate();
 
   const handleCart = async () => {
     try {
@@ -26,9 +28,15 @@ const ProductCard = ({ productDetail }) => {
     }
     return text;
   };
+  const handleNavigate = (id) => {
+    navigate(`/products/${id}`);
+  };
 
   return (
-    <div className="card sm:w-96 bg-base-100 min-h-full max-h-[60vh] shadow-2xl p-2 border border-gray-800">
+    <div
+      className="card sm:w-96 bg-base-100 min-h-full max-h-[60vh] shadow-2xl p-2 border border-gray-800"
+      onClick={() => handleNavigate(productDetail?.id)}
+    >
       <figure>
         <img
           height={180}
@@ -38,12 +46,10 @@ const ProductCard = ({ productDetail }) => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
-          {truncateText(book.title)} 
-        </h2>
+        <h2 className="card-title">{truncateText(book.title)}</h2>
 
         <p className="text-white text-sm">
-          Publisher: {truncateText(book?.publisher)} 
+          Publisher: {truncateText(book?.publisher)}
         </p>
         <p className="text-white text-sm">
           Author: {book?.authors && truncateText(book.authors.join(", "))}
@@ -52,18 +58,19 @@ const ProductCard = ({ productDetail }) => {
           <div className="md:text-xl text-lg flex">
             {productDetail?.saleInfo?.listPrice?.amount
               ? `₹${productDetail?.saleInfo?.listPrice?.amount}`
-              : "Ebook"}
+              : "Free Ebook"}
           </div>
-          <button
-            onClick={handleCart}
-            disabled={addingToCart} 
-            className={`bg-orange-500 p-2 text-white rounded-xl hover:bg-orange-600 ${
-              addingToCart ? "opacity-50 cursor-not-allowed" : ""
-            }`}
-          >
-            {addingToCart ? "Adding..." : "Add to Cart"}{" "}
-            
-          </button>
+          <div onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={handleCart}
+              disabled={addingToCart}
+              className={`bg-orange-500 p-2 text-white rounded-xl hover:bg-orange-600 ${
+                addingToCart ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+            >
+              {addingToCart ? "Adding..." : "Add to Cart"}{" "}
+            </button>
+          </div>
         </div>
       </div>
     </div>

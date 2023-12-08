@@ -9,7 +9,7 @@ const PaymentSuccess = () => {
       </p>
       <ul className="flex flex-col items-center">
         <li>You will receive your order with 3-5 days.</li>
-        <li>Ebooks will be sen to your mail within 20 minutes</li>
+        <li>Ebooks will be sent to your mail within 20 minutes</li>
       </ul>
     </div>
   );

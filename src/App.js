@@ -1,17 +1,28 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Home, Products, Checkout, Cart } from "./pages/index";
+import {
+  Home,
+  Products,
+  Cart,
+  PaymentSuccess,
+  ProductDescription,
+} from "./pages/index";
 import Layout from "./layout/Layout";
-import PaymentSuccess from "./pages/PaymentSuccess";
 function App() {
   return (
     <Layout>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/products" element={<Products />} />
+        <Route exact path="/products/:id" element={<ProductDescription />} />
         <Route exact path="/cart" element={<Cart />} />
-        <Route exact path="/cart/checkout" element={<Checkout />} />
+
         <Route exact path="/order-placed" element={<PaymentSuccess />} />
+        <Route
+          exact
+          path="*"
+          element={<p className="text-center">Page does not exist.</p>}
+        />
       </Routes>
     </Layout>
   );

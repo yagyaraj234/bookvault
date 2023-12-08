@@ -13,7 +13,7 @@ const url = `https://www.googleapis.com/books/v1/volumes?q=r&key=${process.env.R
 
 const Products = () => {
   const { loading, error, data } = useFetch(url);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const products = useSelector((state) => state.productSlice.product);
   const searchedProducts = useSelector(
@@ -27,17 +27,15 @@ const Products = () => {
     if (data) {
       dispatch(setProducts(data.items));
     }
-  }, [data, dispatch]);
+    // eslint-disable-next-line
+  }, [data]);
 
   useEffect(() => {
-    let filteredProducts = searchedProducts.length > 0 ? searchedProducts : products;
+    let filteredProducts =
+      searchedProducts.length > 0 ? searchedProducts : products;
     filteredProducts = filterProducts(filteredProducts, filterType);
     setListProducts(filteredProducts);
   }, [filterType, searchedProducts, products]);
-
-  useEffect(() => {
-    setIsLoading(loading);
-  }, [loading]);
 
   const [listProducts, setListProducts] = useState([]);
 
@@ -59,8 +57,8 @@ const Products = () => {
         </div>
       )}
 
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 my-10 gap-5 p-2">
-        {isLoading ? (
+      <div className="">
+        {isLoading || loading ? (
           <div className="flex items-center justify-center w-screen">
             <ThreeDots
               height={80}
@@ -74,13 +72,17 @@ const Products = () => {
             />
           </div>
         ) : (
-          <>
+          <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 my-10 gap-5 p-2">
             {listProducts.map((product) => (
-              <div key={product.id} className="hover:cursor-pointer">
+              <div
+                key={product.id}
+                data-product-id={product.id}
+                className="hover:cursor-pointer"
+              >
                 <ProductCard productDetail={product} />
               </div>
             ))}
-          </>
+          </div>
         )}
       </div>
     </>

@@ -1,6 +1,7 @@
 import Products from "./Products";
 import Home from "./Home";
 import Cart from "./Cart";
-import Checkout from "./Checkout";
+import PaymentSuccess from "./PaymentSuccess";
+import ProductDescription from "./ProductDescription";
 
-export { Checkout, Home, Products, Cart };
+export { PaymentSuccess, ProductDescription, Home, Products, Cart };

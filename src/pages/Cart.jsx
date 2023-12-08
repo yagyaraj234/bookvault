@@ -65,7 +65,7 @@ const Cart = () => {
             {cartItems?.map((cart) => (
               <div
                 class="text-white flex flex-col rounded-lg  sm:flex-row bg-gray-900"
-                key={cart?.id}
+                key={cart.id}
               >
                 <img
                   class="m-2 h-24 w-28 rounded-md border object-cover object-center"

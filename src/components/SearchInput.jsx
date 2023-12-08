@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,memo } from "react";
 import { useDispatch } from "react-redux";
 import { setFilterProducts } from "../store/product/productSlice";
 
@@ -52,4 +52,4 @@ const SearchInput = ({ setIsLoading }) => {
   );
 };
 
-export default SearchInput;
+export default memo(SearchInput);
