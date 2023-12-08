@@ -1,75 +1,62 @@
 # BookStore e-commerce Application
 
+## Live Project
+
+The live version of the project can be accessed [here](https://bookvault.vercel.app/).
+
+# __Tech Stack__
+> BookStore eCommerce Website This repository contains the source code for a frontend eCommerce book store website. The website allows users to browse, search, and purchase books online. It is built using React, TailwindCss and Redux toolkit for state mangement.
+
 ## Features
 
-- Browse Books: Users can explore a wide range of books available on the platform.
-  Search Functionality: Search for specific books by title, author, or category using the Google Books API integration.
-  User Authentication: Register, login, and manage user accounts.
-  Shopping Cart: Add books to a cart for purchase, remove books from the cart.
-  Checkout: Process orders and complete purchases securely.
-  Admin Dashboard: Admin users can manage inventory, orders, and user accounts.
+- __Browse Books__: Users can explore a wide range of books available on the platform. 
+- __Search Functionality__: Search for specific books by title, author, or category using the Google Books API integration.
+- __Shopping Cart__: Add books to a cart for purchase, remove books from the cart.
+- __Checkout__: Process orders and complete purchases securely.
 
-Certainly! Here's an updated version of the README file with additional details about integrating the Google Books API and features related to the shopping cart:
+## Screenshots
 
-BookStore eCommerce Website
-This repository contains the source code for a full-stack eCommerce book store website. The website allows users to browse, search, and purchase books online. It is built using React for the frontend, Node.js and Express for the backend, and MongoDB as the database.
+![App Screenshot](https://drive.google.com/file/d/1VXrbvuBOLpED7J1h6K7lcDhVMbPYB55e/view?usp=sharing)
 
-Features
-Browse Books: Users can explore a wide range of books available on the platform.
-Search Functionality: Search for specific books by title, author, or category using the Google Books API integration.
-User Authentication: Register, login, and manage user accounts.
-Shopping Cart: Add books to a cart for purchase, remove books from the cart.
-Checkout: Process orders and complete purchases securely.
-Admin Dashboard: Admin users can manage inventory, orders, and user accounts.
-Technologies Used
-Frontend:
 
-React
-React Router
-Redux (for state management)
-HTML, CSS, JavaScript
-Backend:
+## Setup locally
 
-Node.js
-Express
-MongoDB (with Mongoose for database interaction)
-JWT (JSON Web Tokens) for authentication
-Google Books API (for book information retrieval)
 
-Installation
-Clone the repository:
+ __locally clone__
+```bash
+  git clone https://github.com/yagyaraj234/bookvault.git
+```
 
-bash
-Copy code
-git clone https://github.com/your-username/bookstore.git
-Navigate to the project directory:
+__go to bookvault directory__
+```
+ cd bookvault
+```
+__install packages__
+```
+ npm install
+```
 
-bash
-Copy code
-cd bookstore
-Install dependencies:
+__start the development server__
 
-bash
-Copy code
-npm install
-Set up environment variables:
-
-Create a .env file in the root directory and add necessary environment variables like database connection URL, API keys, etc.
-Run the application:
-
-bash
-Copy code
+```
 npm start
-The frontend should be running on http://localhost:3000, and the backend should be running on a different port (http://localhost:5000 by default).
+```
+    
+## Contributing
 
-Usage
-Access the application in your web browser by visiting http://localhost:3000.
-Explore books fetched from the Google Books API, add them to the cart, and proceed to checkout.
-Remove books from the cart if needed before finalizing the purchase.
-Complete the checkout process securely to place the order.
 
-Contributing
-Contributions are welcome! Feel free to submit issues or pull requests.
+Contributions to the project are welcome!
+If you find any issues or have ideas for improvements, feel free to open an issue or submit a pull request.
 
-License
-This project is licensed under the MIT License.
+
+
+## 🔗 My Social Accounts
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://yagyaraj.vercel.app/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yagyraj234)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/yagyraj234)
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
