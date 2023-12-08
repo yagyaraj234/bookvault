@@ -4,7 +4,7 @@ import ProductCard from "../components/ProductCard";
 import Filter from "../components/Filter";
 import SearchInput from "../components/SearchInput";
 import { setProducts } from "../store/product/productSlice";
-import { filterProducts } from "../utils/sort";
+import { filterProducts } from "../utils/filter";
 
 import { useDispatch, useSelector } from "react-redux";
 import { ThreeDots } from "react-loader-spinner";
