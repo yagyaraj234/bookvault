@@ -1,17 +1,17 @@
 import axios from "axios";
-import React, { useState, useEffect,memo } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { useDispatch } from "react-redux";
 import { setFilterProducts } from "../store/product/productSlice";
 
+let timerId;
 const SearchInput = ({ setIsLoading }) => {
   const [searchText, setSearchText] = useState("");
   const dispatch = useDispatch();
-  let timerId;
 
-  const getSearchItems = async (searchQuery) => {
+  const getSearchItems = async () => {
     setIsLoading(true);
     try {
-      const url = `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&key=${process.env.REACT_APP_API_KEY}&maxResults=40`;
+      const url = `https://www.googleapis.com/books/v1/volumes?q=${searchText}&key=${process.env.REACT_APP_API_KEY}&maxResults=40`;
       const res = await axios.get(url);
 
       if (res.data?.items) {
@@ -27,16 +27,18 @@ const SearchInput = ({ setIsLoading }) => {
     }
   };
 
-  const debounceSearch = (value) => {
+  const debounceSearch = () => {
     clearTimeout(timerId);
     timerId = setTimeout(() => {
-      getSearchItems(value);
+      getSearchItems();
     }, 2000);
   };
 
   useEffect(() => {
-    debounceSearch(searchText);
-  // eslint-disable-next-line
+    if (searchText?.length > 1) {
+      debounceSearch();
+    }
+    // eslint-disable-next-line
   }, [searchText]);
 
   return (
